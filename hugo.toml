@@ -1,0 +1,35 @@
+baseURL = "https://go-ruby-activerecord.github.io/"
+title = "go-ruby-activerecord"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Relation & ToSQL"
+  status = "ready"
+  blurb = "A lazy, immutable, chainable `Relation` — `Where` (hash / `?`- and `:name`-placeholders / IN / BETWEEN / IS NULL), `Not`, `Or`, `Select`, `Order`, `Limit`/`Offset`, `Group`/`Having`, `Distinct`, `Merge`, named scopes — rendered to SQL by `ToSQL()`, plus aggregate and DML string builders."
+[[params.phases]]
+  name = "Associations & joins"
+  status = "ready"
+  blurb = "`belongs_to` / `has_many` / `has_one` / `has_and_belongs_to_many` and `:through`, emitting ActiveRecord's exact `INNER` / `LEFT OUTER JOIN … ON` geometry — including HABTM join tables and the two-hop through join with source-reflection direction."
+[[params.phases]]
+  name = "Schema DDL"
+  status = "ready"
+  blurb = "`CreateTable` (with `References` / `Timestamps` / `NoPrimaryKey`), `AddColumnSQL`, `AddIndexSQL` (unique, default `index_<t>_on_<cols>` name), `AddForeignKeySQL`, and a per-dialect column-type map — the migration DDL ActiveRecord generates."
+[[params.phases]]
+  name = "Validations & Errors"
+  status = "ready"
+  blurb = "`presence` / `length` / `format` / `numericality` / `inclusion` / `exclusion` / `uniqueness` producing an `Errors` object shaped like `ActiveModel::Errors`, with ActiveRecord's default message text and `full_messages` ordering."
+[[params.phases]]
+  name = "Attributes & dirty tracking"
+  status = "ready"
+  blurb = "Attribute readers / writers, per-column type casting, and dirty tracking (`Changed` / `Changes` / `AttributeChanged`) mirroring `ActiveModel::Dirty`."
+[[params.phases]]
+  name = "Dialects (SQLite / PG / MySQL)"
+  status = "ready"
+  blurb = "SQLite, PostgreSQL and MySQL identifier quoting and value literalization, selectable per model — the same three dialects ActiveRecord ships, chosen where the generated SQL differs."
+[[params.phases]]
+  name = "Differential oracle & coverage"
+  status = "ready"
+  blurb = "Generated SQL, `errors.full_messages` and the schema DDL are compared to the real `activerecord` gem's `Relation#to_sql` byte-for-byte; 100% coverage, gofmt + go vet clean, green across all six 64-bit Go arches and three OSes."
